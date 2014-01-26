@@ -1,9 +1,5 @@
-# coding: utf-8
-
-
 # 3-rd party
 require "parslet"
-
 
 class ContentType
   # ContentType string parser
@@ -36,11 +32,9 @@ class ContentType
       end
     end
 
-
     def stri(s)
-      s.split(//).map { |c| match["#{c.upcase}#{c.downcase}"] }.reduce :>>
+      str(s).tap { |o| o.instance_variable_set :@str, /#{Regexp.escape s}/i }
     end
-
 
     # rubocop:disable LineLength
     # rubocop:disable Blocks
@@ -58,12 +52,12 @@ class ContentType
 
     rule(:quoted_pair)    { str("\\") >> match[Regexp.escape CHAR] }
     rule(:linear_ws)      { (str(CRLF).repeat(0, 1) >> (str(SPACE) | str(HTAB))).repeat(1) }
-    rule(:qtext)          { match[Regexp.escape CHAR - ["\"", "\\"] - CR] }
-    rule(:quoted_string)  { str('"') >> (qtext | quoted_pair).repeat.as(:value) >> str("\"") }
+    rule(:qtext)          { match[Regexp.escape CHAR - ['"', "\\"] - CR] }
+    rule(:quoted_string)  { str('"') >> (qtext | quoted_pair).repeat.as(:value) >> str('"') }
     rule(:token)          { match[Regexp.escape CHAR - SPACE - CTLS - TSPECIALS].repeat(1) }
     rule(:space)          { str(SPACE) }
-    rule(:x_token)        { stri("x") >> str("-") >> token }
-    rule(:type)           { stri("application") | stri("audio") | stri("mage") | stri("message") | stri("multipart") | stri("text") | stri("video") | x_token }
+    rule(:x_token)        { stri("x-") >> token }
+    rule(:type)           { stri("application") | stri("audio") | stri("image") | stri("message") | stri("multipart") | stri("text") | stri("video") | x_token }
     rule(:subtype)        { token }
     rule(:attribute)      { token }
     rule(:value)          { token.as(:value) | quoted_string }

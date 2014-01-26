@@ -1,9 +1,5 @@
-# coding: utf-8
-
-
 require "content_type/parser"
 require "content_type/version"
-
 
 # ContentType structure
 class ContentType
@@ -39,7 +35,7 @@ class ContentType
     new Parser.new.parse str
   end
 
-  protected
+  private
 
   def parse_parameters(list)
     Array(list).map do |hash|

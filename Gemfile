@@ -3,17 +3,27 @@ source "https://rubygems.org"
 group :development do
   gem "rake"
   gem "guard"
-  gem "guard-rspec"
+  gem "guard-rspec", :require => false
 end
 
 group :test do
-  gem "coveralls", :require => false
-  gem "simplecov", :require => false
-
-  gem "rspec", ">= 2.14"
-  gem "rubocop", ">= 0.16"
-  gem "yardstick"
+  gem "coveralls"
+  gem "rspec",      "~> 3.1"
+  gem "rspec-its"
+  gem "simplecov",  ">= 0.9"
+  gem "rubocop",    "~> 0.28.0"
 end
 
-# Specify your gem's dependencies in content-type.gemspec
+group :doc do
+  gem "yard"
+  gem "redcarpet"
+end
+
+platforms :rbx do
+  gem "racc"
+  gem "rubinius-coverage", "~> 2.0"
+  gem "rubysl", "~> 2.0"
+end
+
+# Specify your gem"s dependencies in content-type.gemspec
 gemspec

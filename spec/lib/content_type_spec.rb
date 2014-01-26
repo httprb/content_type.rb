@@ -1,11 +1,5 @@
-# coding: utf-8
-
-
-require "spec_helper"
-
-
-describe ContentType do
-  subject(:content_type) { ContentType.parse raw }
+RSpec.describe ContentType do
+  subject(:content_type) { described_class.parse raw }
 
   describe ".parse" do
     context "application/json" do

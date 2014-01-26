@@ -1,2 +1,2 @@
-# coding: utf-8
+# rubocop: disable FileName
 require "content_type"
