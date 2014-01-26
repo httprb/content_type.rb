@@ -1,0 +1,11 @@
+StringLiterals:
+  EnforcedStyle: double_quotes
+
+EmptyLines:
+  Enabled: false
+
+Alias:
+  Enabled: false
+
+Documentation:
+  Enabled: false
