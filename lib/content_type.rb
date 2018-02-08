@@ -26,7 +26,7 @@ class ContentType
   end
 
   def to_s
-    (["#{mime_type}"] + parameters.map { |k, v| "#{k}=#{v.to_s.inspect}" })
+    ([mime_type.to_s] + parameters.map { |k, v| "#{k}=#{v.to_s.inspect}" })
       .compact.join("; ")
   end
   alias :to_str :to_s

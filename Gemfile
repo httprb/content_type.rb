@@ -1,8 +1,7 @@
 source "https://rubygems.org"
 
 group :development do
-  # old version of rubocop uses `last_command`; didn't want to upgrade
-  gem "rake", "~> 10.0"
+  gem "rake", "~> 12.3"
   gem "guard"
   gem "guard-rspec", :require => false
 end
@@ -12,7 +11,7 @@ group :test do
   gem "rspec",      "~> 3.1"
   gem "rspec-its"
   gem "simplecov",  ">= 0.9"
-  gem "rubocop",    "~> 0.28.0"
+  gem "rubocop",    "~> 0.52.0"
 end
 
 group :doc do
