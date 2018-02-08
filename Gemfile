@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
 group :development do
-  gem "rake"
+  # old version of rubocop uses `last_command`; didn't want to upgrade
+  gem "rake", "~> 10.0"
   gem "guard"
   gem "guard-rspec", :require => false
 end
