@@ -8,9 +8,9 @@ end
 
 group :test do
   gem "coveralls"
-  gem "rspec",      "~> 3.1"
+  gem "rspec",      "~> 3.7"
   gem "rspec-its"
-  gem "simplecov",  ">= 0.9"
+  gem "simplecov",  "~> 0.14" # 0.15 interferes with coveralls 0.8.21
   gem "rubocop",    "~> 0.52.0"
 end
 
