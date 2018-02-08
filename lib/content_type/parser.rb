@@ -47,6 +47,7 @@ class ContentType
     SPACE     = CharList.new { [" "] }
     HTAB      = CharList.new { [9.chr] }
     CRLF      = CharList.new { [13.chr + 10.chr] }
+    DOT       = CharList.new { ["."] }
     SPECIALS  = CharList.new { ["(", ")", "<", ">", "@", ",", ";", ":", "\\", "\"", ".", "[", "]"] }
     TSPECIALS = CharList.new { SPECIALS + ["/", "?", "="] }
 
@@ -55,10 +56,19 @@ class ContentType
     rule(:qtext)          { match[Regexp.escape CHAR - ['"', "\\"] - CR] }
     rule(:quoted_string)  { str('"') >> (qtext | quoted_pair).repeat.as(:value) >> str('"') }
     rule(:token)          { match[Regexp.escape CHAR - SPACE - CTLS - TSPECIALS].repeat(1) }
+    rule(:type_token)     { match[Regexp.escape CHAR - SPACE - CTLS - TSPECIALS + DOT].repeat(1) }
     rule(:space)          { str(SPACE) }
-    rule(:x_token)        { stri("x-") >> token }
-    rule(:type)           { stri("application") | stri("audio") | stri("image") | stri("message") | stri("multipart") | stri("text") | stri("video") | x_token }
-    rule(:subtype)        { token }
+
+    # This could probably be simplified, in that as per RFC 6838 the entire expression could
+    # just be `type_token`; the RFC names a partial but not exhaustive list of media type trees
+    # and all of `x_token | vendor_token | prs_token` are really just `type_token`s in the first
+    # place.
+    rule(:x_token)        { stri("x-") >> type_token } # DEPRECATED - see RFC 6838
+    rule(:vendor_token)   { stri("vnd.") >> type_token } # vendor tree - see RFC 6838
+    rule(:prs_token)      { stri("prs.") >> type_token } # personal/vanity tree - see RFC 6838
+    rule(:type)           { stri("application") | stri("audio") | stri("image") | stri("message") | stri("multipart") | stri("text") | stri("video") | x_token | vendor_token | prs_token }
+
+    rule(:subtype)        { type_token }
     rule(:attribute)      { token }
     rule(:value)          { token.as(:value) | quoted_string }
     rule(:parameter)      { attribute.as(:attribute) >> str("=") >> value }
