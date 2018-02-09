@@ -25,6 +25,20 @@ RSpec.describe ContentType do
       its(:subtype)     { should eq "beef" }
       its(:parameters)  { should eq "any" => "thing" }
     end
+
+    context "application/vnd.oasis.opendocument.text" do
+      let(:raw) { "application/vnd.oasis.opendocument.text" }
+
+      its(:type)        { should eq "application" }
+      its(:subtype)     { should eq "vnd.oasis.opendocument.text" }
+    end
+
+    context "vnd.android.cursor.dir/vnd.myexample.whatever" do
+      let(:raw) { "vnd.android.cursor.dir/vnd.myexample.whatever" }
+
+      its(:type)        { should eq "vnd.android.cursor.dir" }
+      its(:subtype)     { should eq "vnd.myexample.whatever" }
+    end
   end
 
   describe "#type" do
