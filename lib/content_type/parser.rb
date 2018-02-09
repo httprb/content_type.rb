@@ -36,9 +36,7 @@ class ContentType
       str(s).tap { |o| o.instance_variable_set :@str, /#{Regexp.escape s}/i }
     end
 
-    # rubocop:disable LineLength
-    # rubocop:disable Blocks
-    # rubocop:disable BlockAlignment
+    # rubocop:disable Metrics/LineLength
 
     CHAR      = CharList.new { (0..127).to_a.map(&:chr) }
     CTLS      = CharList.new { (0..31).to_a.map(&:chr) << 127.chr }
@@ -75,5 +73,7 @@ class ContentType
     rule(:parameters)     { space.repeat >> str(";") >> space.repeat >> parameter.as(:parameter) }
     rule(:content_type)   { type.as(:type) >> str("/") >> subtype.as(:subtype) >> parameters.repeat }
     root(:content_type)
+
+    # rubocop:enable Metrics/LineLength
   end
 end

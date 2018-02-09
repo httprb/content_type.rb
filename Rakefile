@@ -14,4 +14,6 @@ rescue LoadError
   end
 end
 
+# rubocop:disable Style/SymbolArray
 task :default => [:spec, :rubocop]
+# rubocop:enable Style/SymbolArray

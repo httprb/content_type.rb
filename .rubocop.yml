@@ -1,10 +1,16 @@
+AllCops:
+  TargetRubyVersion: 2.2
+  Exclude:
+    - Gemfile
+    - content_type.gemspec
+
 ## Styles ######################################################################
 
 # See: http://erniemiller.org/2014/10/23/in-defense-of-alias/
 Style/Alias:
   Enabled: false
 
-Style/AlignParameters:
+Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
 
 Style/BracesAroundHashParameters:
@@ -16,23 +22,20 @@ Style/BracesAroundHashParameters:
 Style/Documentation:
   Enabled: false
 
-Style/EmptyLineBetweenDefs:
+Layout/EmptyLineBetweenDefs:
   AllowAdjacentOneLineDefs: true
-
-Style/Encoding:
-  EnforcedStyle: when_needed
 
 Style/HashSyntax:
   EnforcedStyle: hash_rockets
 
-Style/IndentHash:
+Layout/IndentHash:
   EnforcedStyle: consistent
 
 # New lambda syntax is as ugly to me as new syntax of Hash.
 Style/Lambda:
   Enabled: false
 
-Style/MultilineOperationIndentation:
+Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
 
 # IMHO `%r{foo/bar}` looks way more cleaner than `/foo\/bar/`.
@@ -49,7 +52,10 @@ Style/RegexpLiteral:
 #     conn.hset    :k1, now
 #     conn.hincrby :k2, 123
 #   end
-Style/SingleSpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+
+Style/StderrPuts:
   Enabled: false
 
 Style/StringLiterals:
@@ -74,3 +80,7 @@ Style/TrivialAccessors:
 Metrics/MethodLength:
   CountComments: false
   Max: 15
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/lib/**/*.rb
