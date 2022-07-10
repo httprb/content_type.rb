@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-lib = File.expand_path("../lib", __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "content_type/version"
+require_relative "./lib/content_type/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "content-type"
@@ -18,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(/^bin\//).map { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "parslet", "~> 1.5.0"
+  spec.add_runtime_dependency "parslet", "~> 2.0"
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.metadata["rubygems_mfa_required"] = "true"

@@ -42,8 +42,8 @@ versions:
 
 * Ruby 2.6
 * Ruby 2.7
-- Ruby 3.0
-- Ruby 3.1
+* Ruby 3.0
+* Ruby 3.1
 
 If something doesn't work on one of these versions, it's a bug.
 

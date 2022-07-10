@@ -15,7 +15,6 @@ end
 group :test do
   gem "rspec"
   gem "rspec-its"
-  gem "simplecov"
 
   gem "rubocop", "~> 1.31.2"
   gem "rubocop-performance"

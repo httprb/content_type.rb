@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "content_type/parser"
-require "content_type/version"
+require_relative "./content_type/parser"
+require_relative "./content_type/version"
 
 # ContentType structure
 class ContentType

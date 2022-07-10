@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-require "content_type"
+require_relative "content_type"
