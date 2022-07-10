@@ -1,12 +1,4 @@
-require "simplecov"
-require "coveralls"
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-
-SimpleCov.start { add_filter "/spec/" }
+# frozen_string_literal: true
 
 require "content_type"
 require "rspec/its"

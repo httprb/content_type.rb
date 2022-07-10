@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe ContentType do
   subject(:content_type) { described_class.parse raw }
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "content_type/parser"
 require "content_type/version"
 
@@ -10,7 +12,7 @@ class ContentType
 
     @type       = parsed.first[:type].to_s.downcase
     @subtype    = parsed.first[:subtype].to_s.downcase
-    @parameters = Hash[parse_parameters parsed[1..-1]]
+    @parameters = (parse_parameters parsed[1..-1]).to_h
   end
 
   def mime_type

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # 3-rd party
 require "parslet"
 
@@ -36,7 +38,7 @@ class ContentType
       str(s).tap { |o| o.instance_variable_set :@str, /#{Regexp.escape s}/i }
     end
 
-    # rubocop:disable Metrics/LineLength
+    # rubocop:disable Layout/LineLength
 
     CHAR      = CharList.new { (0..127).to_a.map(&:chr) }
     CTLS      = CharList.new { (0..31).to_a.map(&:chr) << 127.chr }
@@ -74,6 +76,6 @@ class ContentType
     rule(:content_type)   { type.as(:type) >> str("/") >> subtype.as(:subtype) >> parameters.repeat }
     root(:content_type)
 
-    # rubocop:enable Metrics/LineLength
+    # rubocop:enable Layout/LineLength
   end
 end
