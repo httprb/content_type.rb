@@ -13,8 +13,9 @@ Gem::Specification.new do |spec|
   spec.description   = "HTTP ContentType header parser"
 
   spec.files         = `git ls-files -z`.split("\x0")
-  spec.executables   = spec.files.grep(/^bin\//).map { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.required_ruby_version = ">= 2.6"
 
   spec.add_runtime_dependency "parslet", "~> 2.0"
 
