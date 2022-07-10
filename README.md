@@ -80,8 +80,8 @@ See LICENSE.txt for further details.
 [gem-link]: https://rubygems.org/gems/content-type
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg
 [license-link]: https://github.com/httprb/content-type.rb/blob/main/LICENSE.txt
-[ci-image]: https://github.com/httprb/content-type.rb/workflows/CI/badge.svg
-[ci-link]: https://github.com/httprb/content-type.rb/actions/workflows/ci.yml
+[ci-image]: https://github.com/httprb/content_type.rb/actions/workflows/ci.yml/badge.svg
+[ci-link]: https://github.com/httprb/content_type.rb/actions/workflows/ci.yml
 
 [//]: # (links)
 
