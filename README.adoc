@@ -1,0 +1,89 @@
+= ContentType
+
+:gem-image: image:https://img.shields.io/gem/v/content-type?logo=ruby[Last Release]
+:gem-link: https://rubygems.org/gems/content-type
+:license-image: image:https://img.shields.io/badge/license-MIT-blue.svg[MIT License]
+:license-link: https://github.com/httprb/content-type.rb/blob/main/LICENSE.txt
+:ci-image: image:https://github.com/httprb/content_type.rb/actions/workflows/ci.yml/badge.svg[CI Status]
+:ci-link: https://github.com/httprb/content_type.rb/actions/workflows/ci.yml
+:rfc-link: http://tools.ietf.org/html/rfc2045#section-5.1
+:parslet-link: https://kschiess.github.io/parslet/
+
+{gem-link}[{gem-image}]
+{license-link}[{license-image}]
+{ci-link}[{ci-image}]
+
+{rfc-link}[RFC]-compliant HTTP Content-Type parser.
+
+WARNING: I've started this project simply to play with {parslet-link}[parslet].
+It's fully functional, but because of using parslet under the hood, it works
+less efficient than it could.
+
+
+== Installation
+
+Add this line to your application's Gemfile:
+
+  gem "content-type"
+
+And then execute:
+
+
+  $ bundle
+
+Or install it yourself as:
+
+  $ gem install content-type
+
+
+== Usage
+
+[source,ruby]
+----
+content_type = ContentType.parse "application/JSON; charset=utf-8; foo=bar"
+content_type.mime_type              # => "application/json"
+content_type.type                   # => "application"
+content_type.subtype                # => "json"
+content_type.charset                # => "utf-8"
+content_type.parameters["charset"]  # => "utf-8"
+content_type.parameters["foo"]      # => "bar"
+----
+
+
+== Supported Ruby Versions
+
+This library aims to support and is {ci-link}[tested against] the following Ruby
+versions:
+
+* Ruby 2.6
+* Ruby 2.7
+* Ruby 3.0
+* Ruby 3.1
+
+If something doesn't work on one of these versions, it's a bug.
+
+This library may inadvertently work (or seem to work) on other Ruby versions,
+however support will only be provided for the versions listed above.
+
+If you would like this library to support another Ruby version or
+implementation, you may volunteer to be a maintainer. Being a maintainer
+entails making sure all tests run and pass on that implementation. When
+something breaks on your implementation, you will be responsible for providing
+patches in a timely fashion. If critical issues for a particular implementation
+exist at the time of a major release, support for that Ruby version may be
+dropped.
+
+
+== Contributing
+
+. Fork it ( http://github.com/httprb/content-type/fork )
+. Create your feature branch (`git checkout -b my-new-feature`)
+. Commit your changes (`git commit -am 'Add some feature'`)
+. Push to the branch (`git push origin my-new-feature`)
+. Create new Pull Request
+
+
+== Copyright
+
+Copyright © 2015-2022 Alexey Zapparov.
+See LICENSE.txt for further details.
