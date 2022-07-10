@@ -1,9 +1,8 @@
 # ContentType
 
-[![Gem Version](https://badge.fury.io/rb/content-type.png)](http://badge.fury.io/rb/content-type)
-[![Build Status](https://travis-ci.org/httprb/content-type.png?branch=master)](https://travis-ci.org/httprb/content-type)
-[![Coverage Status](https://coveralls.io/repos/httprb/content-type/badge.png?branch=master)](https://coveralls.io/r/httprb/content-type?branch=master)
-[![Code Climate](https://codeclimate.com/github/httprb/content-type.png)](https://codeclimate.com/github/httprb/content-type)
+[![Gem Version][gem-image]][gem-link]
+[![MIT licensed][license-image]][license-link]
+[![CI Status][ci-image]][ci-link]
 
 [RFC][]-compliant HTTP Content-Type parser.
 
@@ -38,7 +37,7 @@ content_type.parameters["foo"]      # => "bar"
 
 ## Supported Ruby Versions
 
-This library aims to support and is [tested against][ci] the following Ruby
+This library aims to support and is [tested against][ci-link] the following Ruby
 versions:
 
 * Ruby 2.6
@@ -71,10 +70,19 @@ dropped.
 
 ## Copyright
 
-Copyright (c) 2015 Aleksey V Zapparov.
-See [LICENSE.txt][license] for further details.
+Copyright © 2015-2022 Alexey Zapparov.
+See LICENSE.txt for further details.
 
 
-[RFC]:      http://tools.ietf.org/html/rfc2045#section-5.1
-[ci]:       http://travis-ci.org/httprb/content-type
-[license]:  https://github.com/httprb/content-type/blob/master/LICENSE.txt
+[//]: # (badges)
+
+[gem-image]: https://img.shields.io/gem/v/content-type?logo=ruby
+[gem-link]: https://rubygems.org/gems/content-type
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg
+[license-link]: https://github.com/httprb/content-type.rb/blob/main/LICENSE.txt
+[ci-image]: https://github.com/httprb/content-type.rb/workflows/CI/badge.svg
+[ci-link]: https://github.com/httprb/content-type.rb/actions/workflows/ci.yml
+
+[//]: # (links)
+
+[RFC]: http://tools.ietf.org/html/rfc2045#section-5.1
